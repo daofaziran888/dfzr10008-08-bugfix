@@ -26,6 +26,9 @@ class EntryPayload(BaseModel):
 
     values: dict[str, Any] = Field(default_factory=dict)
     remark: str | None = None
+    # 前端动作按钮统一以 { "action": "..." } 提交，这里直接接住，
+    # 路由层会同时兼容 values.action 与顶层 action 两种写法。
+    action: str | None = None
 
 
 
